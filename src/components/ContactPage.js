@@ -35,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     textAlign: "center",
-    margin: theme.spacing(1),
+    margin: theme.spacing(-1),
     padding: theme.spacing(0.5,2),
 
     [theme.breakpoints.down('xs')]: {
-      margin: theme.spacing(1),
+      margin: theme.spacing(-1),
       padding: theme.spacing(1,2.5,2,1)
     },
   },
@@ -64,7 +64,6 @@ const initialValues = {
   message : '',
 }
 
-console.log(tempId)
 export default function ContactPage() {
   const classes = useStyles();
   const [values, setValues] = useState(initialValues);
