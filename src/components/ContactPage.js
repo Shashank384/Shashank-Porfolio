@@ -5,15 +5,25 @@ import Paper from '@material-ui/core/Paper';
 import { TextField, Button, Typography } from '@material-ui/core';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import axios from 'axios';
+import emailjs from 'emailjs-com';
+
+let tempId;
+let userId;
+
+if(process.env.NODE_ENV !== 'production') {
+  tempId = process.env.REACT_APP_TEMPLATE_ID;
+  userId = process.env.REACT_APP_USER_ID;
+} else {
+  tempId = process.env.TEMPLATE_ID;
+  userId = process.env.GITHUB_USER_ID;
+}
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    
+  root: {  
     '& .MuiFormControl-root': {
       width: '55%',
       margin: theme.spacing(1),
@@ -48,13 +58,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 const initialValues = {
   name: '',
   email: '',
   message : '',
 }
 
+console.log(tempId)
 export default function ContactPage() {
   const classes = useStyles();
   const [values, setValues] = useState(initialValues);
@@ -72,16 +82,15 @@ export default function ContactPage() {
   }
   const handleSubmit =async(e)=> {
     e.preventDefault();
-    // console.log(values)
-    const {name,email,message} = values;
-    console.log('post')
-    axios.post('/api/form',{
-      
-        name,
-        email,
-        message
-      
-    });
+    
+    emailjs.sendForm('gmail', tempId , e.target, userId)
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset();
+  
     resetForm();
   }
 
@@ -93,7 +102,6 @@ export default function ContactPage() {
     if (reason === 'clickaway') {
       return;
     }
-
     setOpen(false);
   };
  
@@ -143,7 +151,7 @@ export default function ContactPage() {
       </Grid>
     </form>
     <div className={classes.snackbar}>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
           Mail sent Succesfully
         </Alert>
