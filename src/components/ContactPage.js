@@ -71,6 +71,7 @@ export default function ContactPage() {
 
   const handleInputChange = e => {
     const {name, value} = e.target
+    
     setValues({
       ...values,
       [name]: value
@@ -89,12 +90,12 @@ export default function ContactPage() {
           console.log(error.text);
       });
       e.target.reset();
-  
-    resetForm();
+      handleClick();
+      resetForm();
   }
 
-  const handleClick = () => {
-    setOpen(true);
+  const handleClick = (e) => {
+      setOpen(true);
   };
 
   const handleClose = (event, reason) => {
@@ -108,10 +109,11 @@ export default function ContactPage() {
   return (
   <Paper className={classes.paper}>
   <Typography variant="h4" color="primary">Get In Touch</Typography>
-    <form method="POST" action="send" className={classes.root} onSubmit={handleSubmit}>
+    <form method="POST" className={classes.root} onSubmit={handleSubmit}>
       <Grid container>
         <Grid item xs={12}>
           <TextField
+          required
           variant="outlined"
           label="Full Name"
           name="name"
@@ -119,6 +121,7 @@ export default function ContactPage() {
           onChange={handleInputChange}
           />
           <TextField
+          required
           variant="outlined"
           label="Email"
           name="email"
@@ -126,6 +129,7 @@ export default function ContactPage() {
           onChange={handleInputChange}
           />
           <TextField
+          required
           variant="outlined"
           label="Message"
           name="message"
@@ -141,7 +145,6 @@ export default function ContactPage() {
             className={classes.button}
             type="submit"
             value="submit"
-            onClick={handleClick}
           >
             Send Now
           </Button>
