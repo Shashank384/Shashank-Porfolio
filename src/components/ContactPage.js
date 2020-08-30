@@ -6,6 +6,7 @@ import { TextField, Button, Typography } from '@material-ui/core';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import emailjs from 'emailjs-com';
+import * as EmailValidator from 'email-validator';
 
 let tempId;
 let userId;
@@ -68,6 +69,8 @@ export default function ContactPage() {
   const classes = useStyles();
   const [values, setValues] = useState(initialValues);
   const [open, setOpen] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [helperText, setHelperText] = React.useState(undefined);
 
   const handleInputChange = e => {
     const {name, value} = e.target
@@ -82,28 +85,36 @@ export default function ContactPage() {
   }
   const handleSubmit =async(e)=> {
     e.preventDefault();
-    
-    emailjs.sendForm('gmail', tempId , e.target, userId)
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-      e.target.reset();
-      handleClick();
-      resetForm();
-  }
 
-  const handleClick = (e) => {
-      setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
+      if(EmailValidator.validate(e.target.email.value)){
+        emailjs.sendForm('gmail', tempId , e.target, userId)
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+        e.target.reset();
+        handleClick();
+        resetForm();
+        setError(false)
+        setHelperText(undefined)
+        }
+        else{
+          setError(true)
+          setHelperText('Incorrect Email-Id')
+        }
     }
-    setOpen(false);
-  };
+
+    const handleClick = (e) => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+      setOpen(false);
+    };
  
   
   return (
@@ -121,10 +132,12 @@ export default function ContactPage() {
           onChange={handleInputChange}
           />
           <TextField
+          error={error}
           required
           variant="outlined"
           label="Email"
           name="email"
+          helperText={helperText}
           value={values.email}
           onChange={handleInputChange}
           />
