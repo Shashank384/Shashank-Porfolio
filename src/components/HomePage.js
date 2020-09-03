@@ -80,7 +80,7 @@ export default function RecipeReviewCard() {
     { key: 3, label: 'MongoDB' },
     { key: 4, label: 'Firebase' },
     { key: 5, label: 'Postman' },
-    { key: 6, label: 'JQuery' },
+    { key: 6, label: 'AWS' },
     { key: 7, label: 'Docker' },
     { key: 8, label: 'Selenium' },
     { key: 9, label: 'Bootstrap' },
@@ -140,7 +140,7 @@ export default function RecipeReviewCard() {
 			</CardActions>
 			<Collapse in={expanded} timeout="auto" unmountOnExit>
 				<CardContent>
-				<Typography variant="body1" color="textSecondary" component="p">
+				<Typography variant="h6" color="textSecondary" component="p">
 					Experienced Software Developer<br/>
 
 					I have an insightful knowledge in ReactJs, JavaScript, Redux, Flux.<br/><br/>

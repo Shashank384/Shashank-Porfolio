@@ -14,6 +14,16 @@ const useStyles = makeStyles((theme) =>({
           margin: theme.spacing(-1),
           padding: theme.spacing(1,2.5,2,1)
         },
+    },
+    carousel: {
+        '& .carousel-root': {
+            width: '55%',
+            margin: theme.spacing(5),
+            [theme.breakpoints.down('xs')]: {
+              width: '50%',
+              margin: theme.spacing(0.5),
+            }
+          }    
     }
 })
     
@@ -22,7 +32,7 @@ export default function WorksPage () {
     const classes = useStyles();
     return (
     <paper className={classes.paper}>
-        <Carousel autoPlay>
+        <Carousel autoPlay className={classes.carousel} style={{width: "10%"}}>
         <div>
             <img alt="" src={require('../images/img1.PNG')} />
             <p className="legend">Portfolio App</p>

@@ -114,20 +114,31 @@ export default function ResumePage() {
                 
             <Grid container direction="column" >
               <Grid item>
-                <Typography className={classes.date}> Oct 2019 - Present </Typography>               
+              <div className={classes.date}>June 2020 - Present </div>               
+              </Grid>
+              <Grid item><div className={classes.name}>React Developer</div>
+              </Grid>
+              <Grid item><div className={classes.company}>Capgemini Technology Services India Ltd. </div>
+              </Grid>
+              <Grid item className={classes.singlePost}><p>Frontend development of Donation application  <br>
+                    </br>for the management of NGO's transactions. </p>
+              </Grid>
+
+              <Grid item>
+                <Typography className={classes.date}> Jan 2020 - May 2020 </Typography>               
               </Grid>
               <Grid item><Typography className={classes.name}>Senior Software Developer</Typography>
               </Grid>
               <Grid item><Typography className={classes.company}>Capgemini Technology Services India Ltd., Mumbai </Typography>
               </Grid>
-              <Grid item ><Typography className={classes.singlePost}>Working as a React Developer on the SingPass  <br>
+              <Grid item ><Typography className={classes.singlePost}>Working as a Backend Developer on the SingPass  <br>
                     </br> project. </Typography>
               </Grid>
             
 
             
               <Grid item>
-                <Typography className={classes.date}>Sep 2018 - Sep 2019 </Typography>               
+                <Typography className={classes.date}>Sep 2018 - Nov 2019 </Typography>               
               </Grid>
               <Grid item><Typography className={classes.name}>Software Developer</Typography>
               </Grid>
@@ -136,19 +147,7 @@ export default function ResumePage() {
               <Grid item><Typography className={classes.singlePost}>Collaborate with the creative and development <br>
                     </br>teams on the execution of ideas. </Typography>
               </Grid>
-            
-
-            
-              <Grid item>
-                <div className={classes.date}>2018 - Present </div>               
-              </Grid>
-              <Grid item><div className={classes.name}>React Developer</div>
-              </Grid>
-              <Grid item><div className={classes.company}>Capgemini Technology Services India Ltd. </div>
-              </Grid>
-              <Grid item className={classes.singlePost}><p>Collaborate with the creative and development <br>
-                    </br>teams on the execution of ideas. </p>
-              </Grid>
+          
             </Grid>
           </Paper>
         </Grid>
@@ -222,7 +221,7 @@ export default function ResumePage() {
               variant="determinate" value={80} /><br/>
             <Typography variant="h6" align="left" component="h1">Photoshop</Typography>
               <LinearProgress className={classes.LinearProgress}
-                variant="determinate" value={50} /><br/>
+                variant="determinate" value={70} /><br/>
             <Typography variant="h6" align="left" component="h1">Material-UI</Typography>
               <LinearProgress className={classes.LinearProgress}
                 variant="determinate" value={75} /><br/>     

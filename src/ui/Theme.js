@@ -2,8 +2,10 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const arcBase = '#0B72B9'
 const arcBlue = '#3e98c7'
+
 export default createMuiTheme({
     palette: {
+        type: 'light',
         common : {
             base: `${arcBase}`,
             blue: `${arcBlue}`
