@@ -120,8 +120,8 @@ export default function ResumePage() {
               </Grid>
               <Grid item><div className={classes.company}>Capgemini Technology Services India Ltd. </div>
               </Grid>
-              <Grid item className={classes.singlePost}><p>Frontend development of Donation application  <br>
-                    </br>for the management of NGO's transactions. </p>
+              <Grid item><Typography className={classes.singlePost}>Collaborate with the creative and development <br>
+                    </br>teams on the execution of ideas. </Typography>
               </Grid>
 
               <Grid item>
@@ -131,8 +131,8 @@ export default function ResumePage() {
               </Grid>
               <Grid item><Typography className={classes.company}>Capgemini Technology Services India Ltd., Mumbai </Typography>
               </Grid>
-              <Grid item ><Typography className={classes.singlePost}>Working as a Backend Developer on the SingPass  <br>
-                    </br> project. </Typography>
+              <Grid item><Typography className={classes.singlePost}>Collaborate with the creative and development <br>
+                    </br>teams on the execution of ideas. </Typography>
               </Grid>
             
 

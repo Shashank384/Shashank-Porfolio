@@ -108,7 +108,7 @@ export default function RecipeReviewCard() {
 
 				<p variant="body2" color="textSecondary" component="p">
 					I am working as a Software Developer for Capgemini Technology Services India Ltd, India, for the past
-					1 year 11 months.
+					2 years.
                 </p>
           
 				
